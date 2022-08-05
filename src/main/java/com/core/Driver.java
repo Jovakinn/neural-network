@@ -4,8 +4,8 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        int[][][] data = Perceptrone.andData;
-        double[] weights = Perceptrone.INITIAL_WEIGHTS;
+        int[][][] data = Perceptron.andData;
+        double[] weights = Perceptron.INITIAL_WEIGHTS;
 
         int epochNumber = 0;
         boolean errorFlag = true;
@@ -14,7 +14,7 @@ public class Driver {
         double[] adjustedWeights = null;
 
         Driver driver = new Driver();
-        Perceptrone perceptrone = new Perceptrone();
+        Perceptron perceptron = new Perceptron();
 
 
         while (errorFlag){
@@ -25,15 +25,15 @@ public class Driver {
 
             for (int x = 0; x < data.length; x++){
 
-                double weightedSum = perceptrone.calculateWeightedSum(data[x][0], weights);
-                int result = perceptrone.applyActivationFunction(weightedSum);
+                double weightedSum = perceptron.calculateWeightedSum(data[x][0], weights);
+                int result = perceptron.applyActivationFunction(weightedSum);
 
                 error = data[x][1][0] - result;
 
                 if (error != 0)
                     errorFlag = true;
 
-                adjustedWeights = perceptrone.adjustWeights(data[x][0], weights, error);
+                adjustedWeights = perceptron.adjustWeights(data[x][0], weights, error);
                 driver.printVector(data[x], weights, result, error, weightedSum, adjustedWeights);
 
                 weights = adjustedWeights;

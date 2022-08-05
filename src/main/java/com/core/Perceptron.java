@@ -1,6 +1,6 @@
 package com.core;
 
-public class Perceptrone {
+public class Perceptron {
 
     public static final int[][][] andData = {{{0,0},{0}},
                                             {{0,1},{0}},
